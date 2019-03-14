@@ -9,6 +9,11 @@
 # Please clearly state any assumptions and/or constraints about your design.
 # You may use pseudocode or code using any OO language/script.
 
+class CDnaSample:
+    def __init__(self, psampleid, pseq):
+        self.m_id = psampleid
+        self.m_seq = pseq
+
 class CDnaSensor:
     def __init__(self, psensorid):
         self.m_id = psensorid
@@ -17,18 +22,19 @@ class CDnaSensor:
         if psample == 42:
             return [" !!Hulk has been born!!"]
         else:
-            return [""]
+            return [" normal "]
 
     def analyzesample(self, psample):
         sensorresult = "[" + str(self.m_id) + "] Raw: " + str(psample)
+        sensorresult += str(self.featuresdetected(psample))
         return [sensorresult]
 
 
 class CDnaSequencer:
-    def __init__(self, puser, psample):
+    def __init__(self, puser, psample, psensors):
         self.m_user = puser
         self.m_sample = psample
-        self.m_sensors = {CDnaSensor("left"), CDnaSensor("right"), CDnaSensor("top"), CDnaSensor("bottom")}
+        self.m_sensors = psensors
         self.m_results = []
 
     def analyze(self):
