@@ -8,7 +8,7 @@
 
 from dnaseqclass import *
 
-sequence = {"A", "G", "C", "T"};
+sequence = {"A", "G", "C", "T"}
 samples = []
 samples.append(CDnaSample("AKJSCYHFDGCYAASDWEOTAGCKSDJHJ", sequence))
 samples.append(CDnaSample("WHUCUHWAGCTSIDCLIIWEISKDJCVMNSD", sequence))
